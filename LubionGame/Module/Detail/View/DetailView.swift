@@ -28,43 +28,43 @@ struct DetailView: View {
                                 ProgressView().frame(height: 140)
                             }.aspectRatio(contentMode: .fill).frame(width: 50, height: 50).clipped().cornerRadius(12).padding(.trailing, 3)
                             VStack {
-                                Text(self.detailPresenter.gameDetail?.name ?? "").frame(maxWidth: .infinity, alignment: .leading).bold().font(.system(size: 20)).padding(.bottom, 2)
+                                Text(self.detailPresenter.gameDetail?.name ?? "").frame(maxWidth: .infinity, alignment: .leading).bold().font(.system(size: 20)).padding(.bottom, 1)
                                 Text(self.detailPresenter.gameDetail?.genres?.map { $0.name ?? "" }.joined(separator: ", ") ?? "-").bold().foregroundColor(Color.gray).font(.system(size: 12)).frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 5)
                             }
                         }.padding(.vertical, 3)
-                        HStack(spacing: 12) {
+                        HStack {
                             VStack {
                                 Text("Rating").foregroundColor(Color.gray).bold().font(.system(size: 12))
                                 HStack {
                                     Image(systemName: "star.fill").resizable().frame(width: 12, height: 12).foregroundColor(Color.yellow)
                                     Text(String(self.detailPresenter.gameDetail?.rating ?? 0.0)).foregroundColor(Color.black).font(.system(size: 12)).bold()
                                 }
-                            }
-                            Divider().frame(width: 1)
+                            }.frame(maxWidth: .infinity)
+                            Divider().frame(width: 2)
                             VStack {
                                 Text("Playtime").foregroundColor(Color.gray).bold().font(.system(size: 12))
                                 Spacer()
                                 HStack {
                                     Text("\(String(self.detailPresenter.gameDetail?.playtime ?? 0)) Hour").foregroundColor(Color.black).font(.system(size: 12)).bold()
                                 }
-                            }
-                            Divider().frame(width: 1)
+                            }.frame(maxWidth: .infinity)
+                            Divider().frame(width: 2)
                             VStack {
                                 Text("Released").foregroundColor(Color.gray).bold().font(.system(size: 12))
                                 Spacer()
                                 HStack {
                                     Text(self.detailPresenter.gameDetail?.released ?? "-").foregroundColor(Color.black).font(.system(size: 12)).bold()
                                 }
-                            }
-                            Divider().frame(width: 1)
+                            }.frame(maxWidth: .infinity)
+                            Divider().frame(width: 2)
                             VStack {
                                 Text("Metacritic").foregroundColor(Color.gray).bold().font(.system(size: 12))
                                 Spacer()
                                 HStack {
                                     Text(String(self.detailPresenter.gameDetail?.metacritic ?? 0)).foregroundColor(Color.black).font(.system(size: 12)).bold()
                                 }
-                            }
-                        }.frame(maxWidth: .infinity).padding(16).overlay(
+                            }.frame(maxWidth: .infinity)
+                        }.frame(maxWidth: .infinity).padding(.horizontal, 8).padding(.vertical, 16).overlay(
                             RoundedRectangle(cornerRadius: 12)
                                 .stroke(.gray.opacity(0.3), lineWidth: 1)
                         ).padding(.vertical, 8)
@@ -76,6 +76,14 @@ struct DetailView: View {
         }.onAppear {
             if detailPresenter.gameDetail == nil {
                 detailPresenter.getGameDetail(gameId: gameId)
+            }
+        }.toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                GeometryReader { _ in
+                    Image(systemName: "heart").foregroundColor(Color.red)
+                }.padding(.trailing, 8).background(Color.white).onTapGesture {
+                    print("Add Favorite")
+                }
             }
         }
     }

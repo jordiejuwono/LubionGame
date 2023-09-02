@@ -17,16 +17,18 @@ struct TopSectionRowItem: View {
 
 extension TopSectionRowItem {
     var gameImage: some View {
-        AsyncImage(url: URL(string: gameData.backgroundImage ?? "")) { image in
-            image.resizable()
-          } placeholder: {
-            ProgressView()
-          }
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 200, height: 140)
-            .cornerRadius(12)
-            .clipped()
-            .padding(.bottom, 5)
+        ZStack(alignment: .topTrailing) {
+            AsyncImage(url: URL(string: gameData.backgroundImage ?? "")) { image in
+                image.resizable()
+              } placeholder: {
+                ProgressView()
+              }
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 200, height: 140)
+                .cornerRadius(12)
+                .clipped()
+                .padding(.bottom, 5)
+        }
     }
     
     var gameTitle: some View {

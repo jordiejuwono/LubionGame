@@ -15,6 +15,10 @@
 		BB30D7102AA23787003D3F96 /* GameDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D70F2AA23787003D3F96 /* GameDetailResponse.swift */; };
 		BB30D7122AA23A21003D3F96 /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D7112AA23A21003D3F96 /* GameDetailModel.swift */; };
 		BB30D7142AA23D72003D3F96 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D7132AA23D72003D3F96 /* DetailInteractor.swift */; };
+		BB30D7172AA2E053003D3F96 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BB30D7162AA2E053003D3F96 /* Realm */; };
+		BB30D7192AA2E053003D3F96 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BB30D7182AA2E053003D3F96 /* RealmSwift */; };
+		BB30D71D2AA2E0C7003D3F96 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D71C2AA2E0C7003D3F96 /* LocalDataSource.swift */; };
+		BB30D71F2AA2E15C003D3F96 /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D71E2AA2E15C003D3F96 /* GameEntity.swift */; };
 		BB4C8B4D2AA0384500FECB04 /* LubionGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4C8B4C2AA0384500FECB04 /* LubionGameApp.swift */; };
 		BB4C8B4F2AA0384500FECB04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4C8B4E2AA0384500FECB04 /* ContentView.swift */; };
 		BB4C8B512AA0384800FECB04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB4C8B502AA0384800FECB04 /* Assets.xcassets */; };
@@ -42,6 +46,8 @@
 		BB30D70F2AA23787003D3F96 /* GameDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailResponse.swift; sourceTree = "<group>"; };
 		BB30D7112AA23A21003D3F96 /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
 		BB30D7132AA23D72003D3F96 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		BB30D71C2AA2E0C7003D3F96 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
+		BB30D71E2AA2E15C003D3F96 /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
 		BB4C8B492AA0384500FECB04 /* LubionGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LubionGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4C8B4C2AA0384500FECB04 /* LubionGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LubionGameApp.swift; sourceTree = "<group>"; };
 		BB4C8B4E2AA0384500FECB04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB30D7192AA2E053003D3F96 /* RealmSwift in Frameworks */,
+				BB30D7172AA2E053003D3F96 /* Realm in Frameworks */,
 				BB4C8B6F2AA03E1B00FECB04 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +129,23 @@
 				BB30D70D2AA2346C003D3F96 /* DetailPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BB30D71A2AA2E0AE003D3F96 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D71B2AA2E0B7003D3F96 /* Entity */,
+				BB30D71C2AA2E0C7003D3F96 /* LocalDataSource.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		BB30D71B2AA2E0B7003D3F96 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D71E2AA2E15C003D3F96 /* GameEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		BB4C8B402AA0384500FECB04 = {
@@ -192,6 +217,7 @@
 		BB4C8B5D2AA039C500FECB04 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BB30D71A2AA2E0AE003D3F96 /* Local */,
 				BB4C8B672AA03B5300FECB04 /* Remote */,
 				BB4C8B722AA041E900FECB04 /* GameRepository.swift */,
 			);
@@ -336,6 +362,8 @@
 			name = LubionGame;
 			packageProductDependencies = (
 				BB4C8B6E2AA03E1B00FECB04 /* Alamofire */,
+				BB30D7162AA2E053003D3F96 /* Realm */,
+				BB30D7182AA2E053003D3F96 /* RealmSwift */,
 			);
 			productName = LubionGame;
 			productReference = BB4C8B492AA0384500FECB04 /* LubionGame.app */;
@@ -367,6 +395,7 @@
 			mainGroup = BB4C8B402AA0384500FECB04;
 			packageReferences = (
 				BB4C8B6D2AA03E1B00FECB04 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BB30D7152AA2E053003D3F96 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BB4C8B4A2AA0384500FECB04 /* Products */;
 			projectDirPath = "";
@@ -402,6 +431,7 @@
 				BB4C8B7E2AA04C0B00FECB04 /* HomeView.swift in Sources */,
 				BBBAE1CC2AA188F000C65E0B /* TopSectionRowItem.swift in Sources */,
 				BB30D7082AA23404003D3F96 /* GameListRouter.swift in Sources */,
+				BB30D71D2AA2E0C7003D3F96 /* LocalDataSource.swift in Sources */,
 				BB4C8B752AA0420500FECB04 /* GameMapper.swift in Sources */,
 				BB4C8B732AA041E900FECB04 /* GameRepository.swift in Sources */,
 				BB30D7102AA23787003D3F96 /* GameDetailResponse.swift in Sources */,
@@ -415,6 +445,7 @@
 				BB30D7142AA23D72003D3F96 /* DetailInteractor.swift in Sources */,
 				BB4C8B802AA04C1900FECB04 /* HomePresenter.swift in Sources */,
 				BB30D7062AA1C308003D3F96 /* GameListPresenter.swift in Sources */,
+				BB30D71F2AA2E15C003D3F96 /* GameEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +646,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BB30D7152AA2E053003D3F96 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		BB4C8B6D2AA03E1B00FECB04 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -626,6 +665,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BB30D7162AA2E053003D3F96 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB30D7152AA2E053003D3F96 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		BB30D7182AA2E053003D3F96 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB30D7152AA2E053003D3F96 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		BB4C8B6E2AA03E1B00FECB04 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BB4C8B6D2AA03E1B00FECB04 /* XCRemoteSwiftPackageReference "Alamofire" */;

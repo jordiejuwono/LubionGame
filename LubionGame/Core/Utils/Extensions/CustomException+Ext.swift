@@ -11,3 +11,15 @@ enum ServerError: LocalizedError {
         }
     }
 }
+
+enum DatabaseError: LocalizedError {
+    case invalidInstance
+    case requestFailed
+    
+    var errorDescription: String? {
+        switch self {
+        case.invalidInstance: return "Failed to get Database instance"
+        case.requestFailed: return "Request to Database failed"
+        }
+    }
+}
