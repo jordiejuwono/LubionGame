@@ -2,103 +2,106 @@ import Foundation
 
 // MARK: - GameListResponse
 struct GameListResponse: Codable {
-    let count: Int?
-    let next: String?
-    let previous: String?
+//    let count: Int?
+//    let next: String?
+//    let previous: String?
     let results: [Result]?
-    let seoTitle, seoDescription, seoKeywords, seoH1: String?
-    let noindex, nofollow: Bool?
-    let description: String?
-    let filters: Filters?
-    let nofollowCollections: [String]?
+//    let seoTitle, seoDescription, seoKeywords, seoH1: String?
+//    let noindex, nofollow: Bool?
+//    let description: String?
+//    let filters: Filters?
+//    let nofollowCollections: [String]?
 
     enum CodingKeys: String, CodingKey {
-        case count, next, previous, results
-        case seoTitle = "seo_title"
-        case seoDescription = "seo_description"
-        case seoKeywords = "seo_keywords"
-        case seoH1 = "seo_h1"
-        case noindex, nofollow, description, filters
-        case nofollowCollections = "nofollow_collections"
+//        case count, next, previous,
+        case results
+//        case seoTitle = "seo_title"
+//        case seoDescription = "seo_description"
+//        case seoKeywords = "seo_keywords"
+//        case seoH1 = "seo_h1"
+//        case noindex, nofollow, description, filters
+//        case nofollowCollections = "nofollow_collections"
     }
 }
 
-// MARK: - Filters
-struct Filters: Codable {
-    let years: [FiltersYear]?
-}
-
-// MARK: - FiltersYear
-struct FiltersYear: Codable {
-    let from, to: Int?
-    let filter: String?
-    let decade: Int?
-    let years: [YearYear]?
-    let nofollow: Bool?
-    let count: Int?
-}
-
-// MARK: - YearYear
-struct YearYear: Codable {
-    let year, count: Int?
-    let nofollow: Bool?
-}
+//// MARK: - Filters
+//struct Filters: Codable {
+//    let years: [FiltersYear]?
+//}
+//
+//// MARK: - FiltersYear
+//struct FiltersYear: Codable {
+//    let from, to: Int?
+//    let filter: String?
+//    let decade: Int?
+//    let years: [YearYear]?
+//    let nofollow: Bool?
+//    let count: Int?
+//}
+//
+//// MARK: - YearYear
+//struct YearYear: Codable {
+//    let year, count: Int?
+//    let nofollow: Bool?
+//}
 
 // MARK: - Result
 struct Result: Codable {
     let id: Int?
     let slug, name, released: String?
-    let tba: Bool?
+//    let tba: Bool?
     let backgroundImage: String?
     let rating: Double?
-    let ratingTop: Int?
-    let ratings: [Rating]?
-    let ratingsCount, reviewsTextCount, added: Int?
-    let addedByStatus: AddedByStatus?
-    let metacritic, playtime, suggestionsCount: Int?
-    let updated: String?
-    let reviewsCount: Int?
+//    let ratingTop: Int?
+//    let ratings: [Rating]?
+//    let ratingsCount, reviewsTextCount, added: Int?
+//    let addedByStatus: AddedByStatus?
+//    let metacritic, playtime, suggestionsCount: Int?
+//    let updated: String?
+//    let reviewsCount: Int?
     let platforms: [PlatformElement]?
-    let parentPlatforms: [ParentPlatform]?
+//    let parentPlatforms: [ParentPlatform]?
     let genres: [Genre]?
-    let stores: [Store]?
-    let tags: [Genre]?
-    let esrbRating: EsrbRating?
-    let shortScreenshots: [ShortScreenshot]?
+//    let stores: [Store]?
+//    let tags: [Genre]?
+//    let esrbRating: EsrbRating?
+//    let shortScreenshots: [ShortScreenshot]?
 
     enum CodingKeys: String, CodingKey {
-        case id, slug, name, released, tba
+        case id, slug, name, released
+//        , tba
         case backgroundImage = "background_image"
         case rating
-        case ratingTop = "rating_top"
-        case ratings
-        case ratingsCount = "ratings_count"
-        case reviewsTextCount = "reviews_text_count"
-        case added
-        case addedByStatus = "added_by_status"
-        case metacritic, playtime
-        case suggestionsCount = "suggestions_count"
-        case updated
-        case reviewsCount = "reviews_count"
+//        case ratingTop = "rating_top"
+//        case ratings
+//        case ratingsCount = "ratings_count"
+//        case reviewsTextCount = "reviews_text_count"
+//        case added
+//        case addedByStatus = "added_by_status"
+//        case metacritic, playtime
+//        case suggestionsCount = "suggestions_count"
+//        case updated
+//        case reviewsCount = "reviews_count"
         case platforms
-        case parentPlatforms = "parent_platforms"
-        case genres, stores, tags
-        case esrbRating = "esrb_rating"
-        case shortScreenshots = "short_screenshots"
+//        case parentPlatforms = "parent_platforms"
+        case genres
+//        , stores, tags
+//        case esrbRating = "esrb_rating"
+//        case shortScreenshots = "short_screenshots"
     }
 }
 
-// MARK: - AddedByStatus
-struct AddedByStatus: Codable {
-    let yet, owned, beaten, toplay: Int?
-    let dropped, playing: Int?
-}
-
-// MARK: - EsrbRating
-struct EsrbRating: Codable {
-    let id: Int?
-    let name, slug: String?
-}
+//// MARK: - AddedByStatus
+//struct AddedByStatus: Codable {
+//    let yet, owned, beaten, toplay: Int?
+//    let dropped, playing: Int?
+//}
+//
+//// MARK: - EsrbRating
+//struct EsrbRating: Codable {
+//    let id: Int?
+//    let name, slug: String?
+//}
 
 // MARK: - Genre
 struct Genre: Codable {
@@ -106,38 +109,38 @@ struct Genre: Codable {
     let name, slug: String?
     let gamesCount: Int?
     let imageBackground: String?
-    let domain: Domain?
-    let language: Language?
+//    let domain: Domain?
+//    let language: Language?
 
     enum CodingKeys: String, CodingKey {
         case id, name, slug
         case gamesCount = "games_count"
         case imageBackground = "image_background"
-        case domain, language
+//        case domain, language
     }
 }
 
-enum Domain: String, Codable {
-    case appsAppleCOM = "apps.apple.com"
-    case epicgamesCOM = "epicgames.com"
-    case gogCOM = "gog.com"
-    case marketplaceXboxCOM = "marketplace.xbox.com"
-    case microsoftCOM = "microsoft.com"
-    case nintendoCOM = "nintendo.com"
-    case playGoogleCOM = "play.google.com"
-    case storePlaystationCOM = "store.playstation.com"
-    case storeSteampoweredCOM = "store.steampowered.com"
-}
+//enum Domain: String, Codable {
+//    case appsAppleCOM = "apps.apple.com"
+//    case epicgamesCOM = "epicgames.com"
+//    case gogCOM = "gog.com"
+//    case marketplaceXboxCOM = "marketplace.xbox.com"
+//    case microsoftCOM = "microsoft.com"
+//    case nintendoCOM = "nintendo.com"
+//    case playGoogleCOM = "play.google.com"
+//    case storePlaystationCOM = "store.playstation.com"
+//    case storeSteampoweredCOM = "store.steampowered.com"
+//}
 
-enum Language: String, Codable {
-    case eng = "eng"
-}
-
-// MARK: - ParentPlatform
-struct ParentPlatform: Codable {
-    let platform: EsrbRating?
-}
-
+//enum Language: String, Codable {
+//    case eng = "eng"
+//}
+//
+//// MARK: - ParentPlatform
+//struct ParentPlatform: Codable {
+//    let platform: EsrbRating?
+//}
+//
 // MARK: - PlatformElement
 struct PlatformElement: Codable {
     let platform: PlatformPlatform?
@@ -165,10 +168,10 @@ struct PlatformPlatform: Codable {
     }
 }
 
-// MARK: - Requirements
-struct Requirements: Codable {
-    let minimum, recommended: String?
-}
+//// MARK: - Requirements
+//struct Requirements: Codable {
+//    let minimum, recommended: String?
+//}
 
 // MARK: - Rating
 struct Rating: Codable {
@@ -185,14 +188,14 @@ enum Title: String, Codable {
     case skip = "skip"
 }
 
-// MARK: - ShortScreenshot
-struct ShortScreenshot: Codable {
-    let id: Int?
-    let image: String?
-}
-
-// MARK: - Store
-struct Store: Codable {
-    let id: Int?
-    let store: Genre?
-}
+//// MARK: - ShortScreenshot
+//struct ShortScreenshot: Codable {
+//    let id: Int?
+//    let image: String?
+//}
+//
+//// MARK: - Store
+//struct Store: Codable {
+//    let id: Int?
+//    let store: Genre?
+//}

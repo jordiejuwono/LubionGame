@@ -18,7 +18,7 @@ struct GameDetailResponse: Codable {
         case id, slug, name, released
         case backgroundImage = "background_image"
         case backgroundImageAdditional = "background_image_additional"
-        case website, rating, metacritic, ratings, playtime, platforms, developers, genres, publishers, clip
+        case website, rating, metacritic, platforms, ratings, playtime, developers, genres, publishers, clip
         case descriptionRaw = "description_raw"
     }
 }

@@ -9,6 +9,7 @@ class GameListPresenter: ObservableObject {
     private let homeUseCase: HomeUseCase
     
     @Published var gameList: [ResultModel] = []
+    @Published var indieGameList: [ResultModel] = []
     @Published var randomGame: ResultModel?
     @Published var errorMessage: String = ""
     @Published var isLoading: Bool = false
@@ -25,12 +26,28 @@ class GameListPresenter: ObservableObject {
                 switch completion {
                 case .failure:
                     self.errorMessage = String(describing: completion)
-                case .finished:
-                    self.isLoading = false
+                case .finished: self.getIndieGameList()
                 }
             }, receiveValue: { gameList in
                 self.gameList = gameList.results ?? []
                 self.randomGame = gameList.results?.randomElement()
+            }).store(in: &cancellables)
+    }
+    
+    func getIndieGameList() {
+        homeUseCase.getIndieGameList()
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure:
+                    self.errorMessage = String(describing: completion)
+                case .finished:
+                    self.isLoading = false
+                }
+                print(completion)
+            }, receiveValue: { gameList in
+                print(gameList)
+                self.indieGameList = gameList.results ?? []
             }).store(in: &cancellables)
     }
     

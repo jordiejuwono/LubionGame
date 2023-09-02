@@ -5,6 +5,7 @@ import Combine
 protocol LocalDataSourceProtocol: AnyObject {
     func getFavoritedGames() -> AnyPublisher<[GameEntity], DatabaseError>
     func addFavorite(game gameEntity: GameEntity) -> AnyPublisher<Bool, DatabaseError>
+    func deleteFavorite(id gameId: Int) -> AnyPublisher<Bool, DatabaseError>
     func isFavorited(id gameId: Int) -> AnyPublisher<Bool, DatabaseError>
 }
 
@@ -51,11 +52,32 @@ extension LocalDataSource: LocalDataSourceProtocol {
         }.eraseToAnyPublisher()
     }
     
+    func deleteFavorite(id gameId: Int) -> AnyPublisher<Bool, DatabaseError> {
+        return Future<Bool, DatabaseError> { completion in
+            if let realm = self.realm {
+                do {
+                    try realm.write {
+                        if let gameObject = realm.object(ofType: GameEntity.self, forPrimaryKey: gameId) {
+                            realm.delete(gameObject)
+                        } else {
+                            completion(.failure(DatabaseError.requestFailed))
+                        }
+                        completion(.success(true))
+                    }
+                } catch {
+                    completion(.failure(DatabaseError.invalidInstance))
+                }
+            } else {
+                completion(.failure(DatabaseError.invalidInstance))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
     func isFavorited(id gameId: Int) -> AnyPublisher<Bool, DatabaseError> {
         return Future<Bool, DatabaseError> { completion in
             if let realm = self.realm {
                 let gameData = realm.object(ofType: GameEntity.self, forPrimaryKey: gameId)
-                if let data = gameData {
+                if gameData != nil {
                     completion(.success(true))
                 } else {
                     completion(.success(false))

@@ -2,13 +2,17 @@ import SwiftUI
 
 struct HomeView: View {
     let gameListPresenter = GameListPresenter(homeUseCase: Injection.init().provideHome())
+    let favoritePresenter = FavoritePresenter(favoriteUseCase: Injection.init().provideFavorite())
     
     var body: some View {
         TabView {
             GameListView(presenter: gameListPresenter).tabItem {
                 Label("Games", systemImage: "gamecontroller.fill")
             }
-            Text("About").tabItem {
+            FavoriteView(presenter: favoritePresenter).tabItem {
+                Label("Favorite", systemImage: "star.fill")
+            }
+            AboutView().tabItem {
                 Label("About", systemImage: "person.fill")
             }
         }

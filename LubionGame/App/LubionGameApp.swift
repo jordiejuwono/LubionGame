@@ -5,7 +5,7 @@ struct LubionGameApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreenView()
 //                .environmentObject(homePresenter)
         }
     }

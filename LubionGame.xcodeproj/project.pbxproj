@@ -20,6 +20,16 @@
 		BB30D71D2AA2E0C7003D3F96 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D71C2AA2E0C7003D3F96 /* LocalDataSource.swift */; };
 		BB30D71F2AA2E15C003D3F96 /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D71E2AA2E15C003D3F96 /* GameEntity.swift */; };
 		BB30D7212AA2F265003D3F96 /* GameTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D7202AA2F265003D3F96 /* GameTableModel.swift */; };
+		BB30D7272AA31503003D3F96 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D7262AA31503003D3F96 /* FavoritePresenter.swift */; };
+		BB30D7292AA31532003D3F96 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D7282AA31532003D3F96 /* FavoriteInteractor.swift */; };
+		BB30D72B2AA316E2003D3F96 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D72A2AA316E2003D3F96 /* FavoriteRouter.swift */; };
+		BB30D72D2AA31707003D3F96 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D72C2AA31707003D3F96 /* FavoriteView.swift */; };
+		BB30D7322AA319B8003D3F96 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D7312AA319B7003D3F96 /* AboutView.swift */; };
+		BB30D7342AA35453003D3F96 /* CategorySectionRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D7332AA35453003D3F96 /* CategorySectionRowItem.swift */; };
+		BB30D7392AA355C3003D3F96 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D7382AA355C3003D3F96 /* SplashScreenView.swift */; };
+		BB30D73B2AA35E44003D3F96 /* GameHeaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D73A2AA35E44003D3F96 /* GameHeaderItem.swift */; };
+		BB30D7412AA39B47003D3F96 /* GameTrailersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D7402AA39B47003D3F96 /* GameTrailersResponse.swift */; };
+		BB30D7432AA39B74003D3F96 /* GameTrailersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30D7422AA39B74003D3F96 /* GameTrailersModel.swift */; };
 		BB4C8B4D2AA0384500FECB04 /* LubionGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4C8B4C2AA0384500FECB04 /* LubionGameApp.swift */; };
 		BB4C8B4F2AA0384500FECB04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4C8B4E2AA0384500FECB04 /* ContentView.swift */; };
 		BB4C8B512AA0384800FECB04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB4C8B502AA0384800FECB04 /* Assets.xcassets */; };
@@ -50,6 +60,17 @@
 		BB30D71C2AA2E0C7003D3F96 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		BB30D71E2AA2E15C003D3F96 /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
 		BB30D7202AA2F265003D3F96 /* GameTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableModel.swift; sourceTree = "<group>"; };
+		BB30D7262AA31503003D3F96 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
+		BB30D7282AA31532003D3F96 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
+		BB30D72A2AA316E2003D3F96 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
+		BB30D72C2AA31707003D3F96 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		BB30D7312AA319B7003D3F96 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		BB30D7332AA35453003D3F96 /* CategorySectionRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySectionRowItem.swift; sourceTree = "<group>"; };
+		BB30D7352AA3552F003D3F96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BB30D7382AA355C3003D3F96 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		BB30D73A2AA35E44003D3F96 /* GameHeaderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHeaderItem.swift; sourceTree = "<group>"; };
+		BB30D7402AA39B47003D3F96 /* GameTrailersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTrailersResponse.swift; sourceTree = "<group>"; };
+		BB30D7422AA39B74003D3F96 /* GameTrailersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTrailersModel.swift; sourceTree = "<group>"; };
 		BB4C8B492AA0384500FECB04 /* LubionGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LubionGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4C8B4C2AA0384500FECB04 /* LubionGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LubionGameApp.swift; sourceTree = "<group>"; };
 		BB4C8B4E2AA0384500FECB04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +118,8 @@
 			children = (
 				BB30D7032AA1C2F1003D3F96 /* GameListView.swift */,
 				BBBAE1CB2AA188F000C65E0B /* TopSectionRowItem.swift */,
+				BB30D7332AA35453003D3F96 /* CategorySectionRowItem.swift */,
+				BB30D73A2AA35E44003D3F96 /* GameHeaderItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,6 +173,103 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		BB30D7222AA313B9003D3F96 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D7252AA313CA003D3F96 /* View */,
+				BB30D7242AA313C7003D3F96 /* Route */,
+				BB30D7232AA313C2003D3F96 /* Presenter */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		BB30D7232AA313C2003D3F96 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D7262AA31503003D3F96 /* FavoritePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BB30D7242AA313C7003D3F96 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D72A2AA316E2003D3F96 /* FavoriteRouter.swift */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		BB30D7252AA313CA003D3F96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D72C2AA31707003D3F96 /* FavoriteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB30D72F2AA319A9003D3F96 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D7302AA319AE003D3F96 /* View */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		BB30D7302AA319AE003D3F96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D7312AA319B7003D3F96 /* AboutView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB30D7362AA355AF003D3F96 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D7372AA355B5003D3F96 /* View */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		BB30D7372AA355B5003D3F96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D7382AA355C3003D3F96 /* SplashScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB30D73C2AA36B65003D3F96 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BB30D73F2AA36B73003D3F96 /* Presenter */,
+				BB30D73E2AA36B6F003D3F96 /* Router */,
+				BB30D73D2AA36B6B003D3F96 /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BB30D73D2AA36B6B003D3F96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB30D73E2AA36B6F003D3F96 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		BB30D73F2AA36B73003D3F96 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		BB4C8B402AA0384500FECB04 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +289,7 @@
 		BB4C8B4B2AA0384500FECB04 /* LubionGame */ = {
 			isa = PBXGroup;
 			children = (
+				BB30D7352AA3552F003D3F96 /* Info.plist */,
 				BB4C8B5C2AA0399A00FECB04 /* Module */,
 				BB4C8B5B2AA0399500FECB04 /* Core */,
 				BB4C8B5A2AA0398F00FECB04 /* App */,
@@ -209,6 +330,10 @@
 		BB4C8B5C2AA0399A00FECB04 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				BB30D73C2AA36B65003D3F96 /* Search */,
+				BB30D7362AA355AF003D3F96 /* SplashScreen */,
+				BB30D72F2AA319A9003D3F96 /* About */,
+				BB30D7222AA313B9003D3F96 /* Favorite */,
 				BB30D6FF2AA1C2BA003D3F96 /* GameList */,
 				BB4C8B622AA039F900FECB04 /* Detail */,
 				BB4C8B612AA039F600FECB04 /* Home */,
@@ -301,6 +426,7 @@
 			children = (
 				BB4C8B692AA03D2F00FECB04 /* GameListResponse.swift */,
 				BB30D70F2AA23787003D3F96 /* GameDetailResponse.swift */,
+				BB30D7402AA39B47003D3F96 /* GameTrailersResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -311,6 +437,7 @@
 				BB4C8B762AA0423A00FECB04 /* GameListModel.swift */,
 				BB30D7112AA23A21003D3F96 /* GameDetailModel.swift */,
 				BB30D7202AA2F265003D3F96 /* GameTableModel.swift */,
+				BB30D7422AA39B74003D3F96 /* GameTrailersModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +447,7 @@
 			children = (
 				BB4C8B782AA04B6900FECB04 /* HomeInteractor.swift */,
 				BB30D7132AA23D72003D3F96 /* DetailInteractor.swift */,
+				BB30D7282AA31532003D3F96 /* FavoriteInteractor.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -426,27 +554,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB30D7292AA31532003D3F96 /* FavoriteInteractor.swift in Sources */,
+				BB30D73B2AA35E44003D3F96 /* GameHeaderItem.swift in Sources */,
+				BB30D7342AA35453003D3F96 /* CategorySectionRowItem.swift in Sources */,
 				BB4C8B4F2AA0384500FECB04 /* ContentView.swift in Sources */,
 				BB4C8B6C2AA03DEC00FECB04 /* RemoteDataSource.swift in Sources */,
+				BB30D7322AA319B8003D3F96 /* AboutView.swift in Sources */,
+				BB30D7272AA31503003D3F96 /* FavoritePresenter.swift in Sources */,
 				BB30D70C2AA23448003D3F96 /* DetailView.swift in Sources */,
 				BB30D7042AA1C2F2003D3F96 /* GameListView.swift in Sources */,
 				BB4C8B4D2AA0384500FECB04 /* LubionGameApp.swift in Sources */,
 				BB4C8B7E2AA04C0B00FECB04 /* HomeView.swift in Sources */,
 				BBBAE1CC2AA188F000C65E0B /* TopSectionRowItem.swift in Sources */,
 				BB30D7082AA23404003D3F96 /* GameListRouter.swift in Sources */,
+				BB30D7412AA39B47003D3F96 /* GameTrailersResponse.swift in Sources */,
 				BB30D71D2AA2E0C7003D3F96 /* LocalDataSource.swift in Sources */,
 				BB4C8B752AA0420500FECB04 /* GameMapper.swift in Sources */,
 				BB4C8B732AA041E900FECB04 /* GameRepository.swift in Sources */,
+				BB30D7392AA355C3003D3F96 /* SplashScreenView.swift in Sources */,
 				BB30D7102AA23787003D3F96 /* GameDetailResponse.swift in Sources */,
 				BB4C8B772AA0423A00FECB04 /* GameListModel.swift in Sources */,
 				BB30D70E2AA2346C003D3F96 /* DetailPresenter.swift in Sources */,
+				BB30D72D2AA31707003D3F96 /* FavoriteView.swift in Sources */,
 				BB4C8B792AA04B6900FECB04 /* HomeInteractor.swift in Sources */,
+				BB30D7432AA39B74003D3F96 /* GameTrailersModel.swift in Sources */,
 				BB30D7122AA23A21003D3F96 /* GameDetailModel.swift in Sources */,
 				BB4C8B6A2AA03D2F00FECB04 /* GameListResponse.swift in Sources */,
 				BB4C8B822AA04D9500FECB04 /* Injection.swift in Sources */,
 				BB30D7212AA2F265003D3F96 /* GameTableModel.swift in Sources */,
 				BB4C8B652AA03AAA00FECB04 /* CustomException+Ext.swift in Sources */,
 				BB30D7142AA23D72003D3F96 /* DetailInteractor.swift in Sources */,
+				BB30D72B2AA316E2003D3F96 /* FavoriteRouter.swift in Sources */,
 				BB4C8B802AA04C1900FECB04 /* HomePresenter.swift in Sources */,
 				BB30D7062AA1C308003D3F96 /* GameListPresenter.swift in Sources */,
 				BB30D71F2AA2E15C003D3F96 /* GameEntity.swift in Sources */,
@@ -580,6 +718,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LubionGame/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LubionGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -608,6 +747,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LubionGame/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LubionGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

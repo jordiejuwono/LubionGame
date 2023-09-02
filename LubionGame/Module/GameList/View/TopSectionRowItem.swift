@@ -42,7 +42,7 @@ extension TopSectionRowItem {
     var gameRating: some View {
         HStack {
             Image(systemName: "star.fill").resizable().frame(width: 12, height: 12).foregroundColor(Color.yellow)
-            Text(String(gameData.rating ?? 0.0)).foregroundColor(Color.black).font(.system(size: 12)).bold()
+            Text(String(format: "%.1f", gameData.rating ?? 0.0)).foregroundColor(Color.black).font(.system(size: 12)).bold()
             Spacer()
         }.padding(.bottom, 8).padding(.leading, 5)
     }

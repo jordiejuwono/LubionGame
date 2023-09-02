@@ -4,14 +4,21 @@ final class GameMapper {
     static func mapGameListResponseToDomains(
         input gameListResponse: GameListResponse
     ) -> GameListModel {
-        return GameListModel(count: gameListResponse.count ?? 0, next: gameListResponse.next ?? "", previous: gameListResponse.previous ?? "", results: mapResultsResponseToDomains(input: gameListResponse.results))
+        return GameListModel(
+//            count: gameListResponse.count ?? 0, next: gameListResponse.next ?? "", previous: gameListResponse.previous ?? "",
+                             results: mapResultsResponseToDomains(input: gameListResponse.results))
     }
     
     static func mapResultsResponseToDomains(
         input resultsResponse: [Result]?
     ) -> [ResultModel]? {
         return resultsResponse?.map { result in
-            return ResultModel(id: result.id ?? 0, name: result.name ?? "", released: result.released ?? "", backgroundImage: result.backgroundImage ?? "", rating: result.rating ?? 0.0, playtime: result.playtime ?? 0, reviewsCount: result.reviewsCount ?? 0, platforms: mapPlatformsElementResponseToDomains(input: result.platforms), genres: mapGenresResponseToDomains(input: result.genres), shortScreenshots: mapShortScreenshotsResponseToDomains(input: result.shortScreenshots))
+            return ResultModel(id: result.id ?? 0, name: result.name ?? "", released: result.released ?? "", backgroundImage: result.backgroundImage ?? "", rating: result.rating ?? 0.0,
+//                               playtime: result.playtime ?? 0, reviewsCount: result.reviewsCount ?? 0,
+                               platforms: mapPlatformsElementResponseToDomains(input: result.platforms),
+                               genres: mapGenresResponseToDomains(input: result.genres)
+//                               , shortScreenshots: mapShortScreenshotsResponseToDomains(input: result.shortScreenshots)
+            )
         }
     }
     
@@ -22,7 +29,7 @@ final class GameMapper {
             return PlatformElementModel(platform: mapPlatformsResponseToDomains(input: result.platform), releasedAt: result.releasedAt ?? "")
         }
     }
-    
+
     static func mapPlatformsResponseToDomains(
         input platform: PlatformPlatform?
     ) -> PlatformPlatformModel? {
@@ -37,19 +44,19 @@ final class GameMapper {
         }
     }
     
-    static func mapShortScreenshotsResponseToDomains(
-        input screenshots: [ShortScreenshot]?
-    ) -> [ShortScreenshotModel]? {
-        return screenshots?.map { result in
-            return ShortScreenshotModel(id: result.id ?? 0, image: result.image ?? "")
-        }
-    }
+//    static func mapShortScreenshotsResponseToDomains(
+//        input screenshots: [ShortScreenshot]?
+//    ) -> [ShortScreenshotModel]? {
+//        return screenshots?.map { result in
+//            return ShortScreenshotModel(id: result.id ?? 0, image: result.image ?? "")
+//        }
+//    }
     
     // MARK: - GameDetail
     static func mapGameDetailResponseToDomains(
         input gameDetailResponse: GameDetailResponse
     ) -> GameDetailModel {
-        return GameDetailModel(id: gameDetailResponse.id ?? 0, slug: gameDetailResponse.slug ?? "", name: gameDetailResponse.name ?? "", released: gameDetailResponse.released ?? "", backgroundImage: gameDetailResponse.backgroundImage ?? "", backgroundImageAdditional: gameDetailResponse.backgroundImageAdditional ?? "", website: gameDetailResponse.website ?? "", rating: gameDetailResponse.rating ?? 0.0, ratings: mapDetailRatingsToDomains(input: gameDetailResponse.ratings), playtime: gameDetailResponse.playtime ?? 0, metacritic: gameDetailResponse.metacritic ?? 0, platforms: mapPlatformsElementResponseToDomains(input: gameDetailResponse.platforms), developers: mapDeveloperResponseToDomains(input: gameDetailResponse.developers), genres: mapDeveloperResponseToDomains(input: gameDetailResponse.genres), publishers: mapDeveloperResponseToDomains(input: gameDetailResponse.publishers), clip: gameDetailResponse.clip ?? "", descriptionRaw: gameDetailResponse.descriptionRaw ?? "")
+        return GameDetailModel(id: gameDetailResponse.id ?? 0, slug: gameDetailResponse.slug ?? "", name: gameDetailResponse.name ?? "", released: gameDetailResponse.released ?? "", backgroundImage: gameDetailResponse.backgroundImage ?? "", backgroundImageAdditional: gameDetailResponse.backgroundImageAdditional ?? "", website: gameDetailResponse.website ?? "", rating: gameDetailResponse.rating ?? 0.0, ratings: mapDetailRatingsToDomains(input: gameDetailResponse.ratings), playtime: gameDetailResponse.playtime ?? 0, metacritic: gameDetailResponse.metacritic ?? 0,platforms: mapPlatformsElementResponseToDomains(input: gameDetailResponse.platforms), developers: mapDeveloperResponseToDomains(input: gameDetailResponse.developers), genres: mapDeveloperResponseToDomains(input: gameDetailResponse.genres), publishers: mapDeveloperResponseToDomains(input: gameDetailResponse.publishers), clip: gameDetailResponse.clip ?? "", descriptionRaw: gameDetailResponse.descriptionRaw ?? "")
     }
     
     static func mapDetailRatingsToDomains(
@@ -90,5 +97,25 @@ final class GameMapper {
         input gameResponse: ResultModel
     ) -> GameTableModel {
         return GameTableModel(id: gameResponse.id, name: gameResponse.name, backgroundImage: gameResponse.backgroundImage)
+    }
+    
+    static func mapGameTrailersResponseToDomains(
+        input gameTrailers: GameTrailersResponse
+    ) -> GameTrailersModel {
+        return GameTrailersModel(results: mapTrailerResultsToDomains(input: gameTrailers.results))
+    }
+    
+    static func mapTrailerResultsToDomains(
+        input trailers: [TrailerResult]?
+    ) -> [TrailerResultModel]? {
+        return trailers?.map { result in
+            return TrailerResultModel(id: result.id ?? 0, name: result.name ?? "", preview: result.preview ?? "", data: mapDataCLassResponseToDomains(input: result.data))
+        }
+    }
+    
+    static func mapDataCLassResponseToDomains(
+        input dataClass: DataClass?
+    ) -> DataClassModel? {
+        return DataClassModel(the480: dataClass?.the480, max: dataClass?.max)
     }
 }
