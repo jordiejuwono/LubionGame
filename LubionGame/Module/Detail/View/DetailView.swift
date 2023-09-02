@@ -4,6 +4,7 @@ struct DetailView: View {
     
     var gameId: String
     @ObservedObject var detailPresenter: DetailPresenter
+    @State var showAlert: Bool = false
     
     var body: some View {
         ZStack {
@@ -76,13 +77,23 @@ struct DetailView: View {
         }.onAppear {
             if detailPresenter.gameDetail == nil {
                 detailPresenter.getGameDetail(gameId: gameId)
+                detailPresenter.isFavorited(id: Int(gameId) ?? 0)
             }
         }.toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                GeometryReader { _ in
-                    Image(systemName: "heart").foregroundColor(Color.red)
-                }.padding(.trailing, 8).background(Color.white).onTapGesture {
-                    print("Add Favorite")
+                Button{
+                    if self.detailPresenter.isFavorited {
+                        self.showAlert = false
+                    } else {
+                        self.showAlert = true
+                    }
+                } label: {
+                    Image(systemName: self.detailPresenter.isFavorited ? "heart.fill" : "heart").foregroundColor(Color.red)
+                }.alert(isPresented: $showAlert) {
+                    let gameName = self.detailPresenter.gameDetail?.name
+                    return Alert(title: Text("Add to Favorite"), message: Text("Add \(gameName ?? "") to favorite?"), primaryButton: .default(Text("Yes").bold()) {
+                        self.detailPresenter.addFavoriteGame(game: GameTableModel(id: self.detailPresenter.gameDetail?.id, name: self.detailPresenter.gameDetail?.name, backgroundImage: self.detailPresenter.gameDetail?.backgroundImage))
+                    }, secondaryButton: .cancel())
                 }
             }
         }

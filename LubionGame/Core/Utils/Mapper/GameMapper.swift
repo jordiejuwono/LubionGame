@@ -1,7 +1,6 @@
 import Foundation
 
 final class GameMapper {
-    // MARK: - GameList
     static func mapGameListResponseToDomains(
         input gameListResponse: GameListResponse
     ) -> GameListModel {
@@ -67,5 +66,29 @@ final class GameMapper {
         return developerResponse?.map { result in
             return DeveloperModel(id: result.id ?? 0, name: result.name ?? "", slug: result.slug ?? "", gamesCount: result.gamesCount ?? 0, imageBackground: result.imageBackground ?? "")
         }
+    }
+    
+    static func mapGamesEntityToDomains(
+        input gamesModel: [GameEntity]
+    ) -> [GameTableModel] {
+        return gamesModel.map { result in
+            return GameTableModel(id: result.id, name: result.name, backgroundImage: result.backgroundImage)
+        }
+    }
+    
+    static func mapGameDomainToEntities(
+        input gameModel: GameTableModel
+    ) -> GameEntity {
+        let gameEntity = GameEntity()
+        gameEntity.id = gameModel.id ?? 0
+        gameEntity.name = gameModel.name ?? ""
+        gameEntity.backgroundImage = gameModel.backgroundImage ?? ""
+        return gameEntity
+    }
+    
+    static func mapGameResponseToGameTable(
+        input gameResponse: ResultModel
+    ) -> GameTableModel {
+        return GameTableModel(id: gameResponse.id, name: gameResponse.name, backgroundImage: gameResponse.backgroundImage)
     }
 }

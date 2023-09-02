@@ -3,6 +3,8 @@ import Combine
 
 protocol DetailUseCase {
     func getGameDetail(gameId: String) -> AnyPublisher<GameDetailModel, ServerError>
+    func addFavoriteGame(game gameModel: GameTableModel) -> AnyPublisher<Bool, DatabaseError>
+    func isFavorited(id gameId: Int) -> AnyPublisher<Bool, DatabaseError>
 }
 
 class DetailInteractor: DetailUseCase {
@@ -15,6 +17,14 @@ class DetailInteractor: DetailUseCase {
     
     func getGameDetail(gameId: String) -> AnyPublisher<GameDetailModel, ServerError> {
         return repository.getGameDetail(gameId: gameId)
+    }
+    
+    func addFavoriteGame(game gameModel: GameTableModel) -> AnyPublisher<Bool, DatabaseError> {
+        return repository.addFavorite(game: gameModel)
+    }
+    
+    func isFavorited(id gameId: Int) -> AnyPublisher<Bool, DatabaseError> {
+        return repository.isFavorited(id: gameId)
     }
     
 }

@@ -9,6 +9,7 @@ class DetailPresenter: ObservableObject {
     @Published var gameDetail: GameDetailModel?
     @Published var errorMessage: String = ""
     @Published var isLoading: Bool = false
+    @Published var isFavorited: Bool = false
     
     init(detailUseCase: DetailUseCase) {
         self.detailUseCase = detailUseCase
@@ -27,6 +28,27 @@ class DetailPresenter: ObservableObject {
                 }
             }, receiveValue: { gameDetail in
                 self.gameDetail = gameDetail
+            }).store(in: &cancellables)
+    }
+    
+    func addFavoriteGame(game gameModel: GameTableModel) {
+        isLoading = true
+        detailUseCase.addFavoriteGame(game: gameModel)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { _ in
+            }, receiveValue: { _ in
+                self.isLoading = false
+                self.isFavorited(id: gameModel.id ?? 0)
+            }).store(in: &cancellables)
+    }
+    
+    func isFavorited(id gameId: Int) {
+        detailUseCase.isFavorited(id: gameId)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                
+            }, receiveValue: { isFavorited in
+                self.isFavorited = isFavorited
             }).store(in: &cancellables)
     }
 }
