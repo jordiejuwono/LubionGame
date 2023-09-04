@@ -1,23 +1,24 @@
 import SwiftUI
 
-struct FavoriteView: View {
+struct SearchView: View {
     
-    @ObservedObject var presenter: FavoritePresenter
+    var query: String
+    @ObservedObject var presenter: SearchPresenter
     
     var body: some View {
         ZStack {
             if presenter.isLoading {
                 LoadingView()
             } else if presenter.isEmpty {
-                EmptyDataView(emptyText: "No Favorite\nGame Yet")
+                EmptyDataView(emptyText: "No Game Found")
             } else {
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVStack(alignment: .center) {
                         ForEach(
-                            self.presenter.favoritedGames,
+                            self.presenter.searchResults,
                             id: \.id
                         ) { gameList in
-                            self.presenter.linkBuilder(for: String(gameList.id!)) {
+                            self.presenter.linkBuilder(for: String(gameList.id ?? 0)) {
                                 HStack {
                                     AsyncImage(url: URL(string: gameList.backgroundImage ?? "")) { image in
                                         image.resizable()
@@ -29,16 +30,16 @@ struct FavoriteView: View {
                                         .cornerRadius(12)
                                         .clipped()
                                     
-                                    Text(gameList.name ?? "").bold().frame(maxWidth: .infinity, alignment: .leading).foregroundColor(Color.black)
+                                    Text(gameList.name ?? "").bold().frame(maxWidth: .infinity, alignment: .leading).multilineTextAlignment(.leading).foregroundColor(Color.black)
                                 }.padding(.leading)
                             }
                         }
-                    }
+                    }.padding(.top)
                 }
             }
         }.onAppear {
-            self.presenter.getFavoritedGames()
-        }.navigationBarTitle(Text("Lubion Game"), displayMode: .automatic)
+            self.presenter.getGameList(query: query)
+        }.navigationBarTitle(Text("Search results for \"\(query)\""), displayMode: .automatic)
     }
     
 }

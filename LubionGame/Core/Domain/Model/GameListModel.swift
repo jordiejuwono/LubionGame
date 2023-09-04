@@ -2,9 +2,6 @@ import Foundation
 
 // MARK: - GameListResponse
 struct GameListModel {
-//    let count: Int?
-//    let next: String?
-//    let previous: String?
     let results: [ResultModel]?
 }
 
@@ -14,11 +11,8 @@ struct ResultModel {
     let name, released: String?
     let backgroundImage: String?
     let rating: Double?
-//    let playtime: Int?
-//    let reviewsCount: Int?
     let platforms: [PlatformElementModel]?
     let genres: [GenreModel]?
-//    let shortScreenshots: [ShortScreenshotModel]?
 }
 
 // MARK: - Genre

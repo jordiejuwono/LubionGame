@@ -21,4 +21,8 @@ final class Injection: NSObject {
     func provideFavorite() -> FavoriteUseCase {
         return FavoriteInteractor(repository: provideRepository())
     }
+    
+    func provideSearch() -> SearchUseCase {
+        return SearchInteractor(repository: provideRepository())
+    }
 }

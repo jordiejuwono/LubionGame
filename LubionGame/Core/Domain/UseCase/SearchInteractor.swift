@@ -1,13 +1,11 @@
 import Foundation
 import Combine
 
-protocol HomeUseCase {
+protocol SearchUseCase {
     func getGameList(query search: String?) -> AnyPublisher<GameListModel, ServerError>
-    func getIndieGameList() -> AnyPublisher<GameListModel, ServerError>
 }
 
-class HomeInteractor: HomeUseCase {
-    
+class SearchInteractor: SearchUseCase {
     private let repository: GameRepositoryProtocol
     
     required init(repository: GameRepositoryProtocol) {
@@ -17,9 +15,4 @@ class HomeInteractor: HomeUseCase {
     func getGameList(query search: String?) -> AnyPublisher<GameListModel, ServerError> {
         return repository.getGameList(query: search)
     }
-    
-    func getIndieGameList() -> AnyPublisher<GameListModel, ServerError> {
-        return repository.getIndieGameList()
-    }
-    
 }

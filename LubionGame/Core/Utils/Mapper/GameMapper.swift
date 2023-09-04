@@ -98,24 +98,5 @@ final class GameMapper {
     ) -> GameTableModel {
         return GameTableModel(id: gameResponse.id, name: gameResponse.name, backgroundImage: gameResponse.backgroundImage)
     }
-    
-    static func mapGameTrailersResponseToDomains(
-        input gameTrailers: GameTrailersResponse
-    ) -> GameTrailersModel {
-        return GameTrailersModel(results: mapTrailerResultsToDomains(input: gameTrailers.results))
-    }
-    
-    static func mapTrailerResultsToDomains(
-        input trailers: [TrailerResult]?
-    ) -> [TrailerResultModel]? {
-        return trailers?.map { result in
-            return TrailerResultModel(id: result.id ?? 0, name: result.name ?? "", preview: result.preview ?? "", data: mapDataCLassResponseToDomains(input: result.data))
-        }
-    }
-    
-    static func mapDataCLassResponseToDomains(
-        input dataClass: DataClass?
-    ) -> DataClassModel? {
-        return DataClassModel(the480: dataClass?.the480, max: dataClass?.max)
-    }
+
 }

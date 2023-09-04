@@ -5,7 +5,7 @@ import Combine
 class GameListPresenter: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
-    private let gameListRouter = GameListRouter()
+    let gameListRouter = GameListRouter()
     private let homeUseCase: HomeUseCase
     
     @Published var gameList: [ResultModel] = []
@@ -20,7 +20,7 @@ class GameListPresenter: ObservableObject {
     
     func getGameList() {
         isLoading = true
-        homeUseCase.getGameList()
+        homeUseCase.getGameList(query: nil)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -56,6 +56,15 @@ class GameListPresenter: ObservableObject {
         @ViewBuilder content: () -> Content
     ) -> some View {
         NavigationLink(destination: gameListRouter.makeDetailView(for: gameId)) {
+            content()
+        }
+    }
+    
+    func searchLinkBuilder<Content: View>(
+        for query: String,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        NavigationLink(destination: gameListRouter.makeSearchView(for: query)) {
             content()
         }
     }

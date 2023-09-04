@@ -1,5 +1,4 @@
 import Foundation
-import AVKit
 import Combine
 
 class DetailPresenter: ObservableObject {
@@ -8,9 +7,6 @@ class DetailPresenter: ObservableObject {
     private let detailUseCase: DetailUseCase
     
     @Published var gameDetail: GameDetailModel?
-    @Published var gameTrailers: [TrailerResultModel]? = []
-    @Published var player: AVPlayer?
-    @Published var trailerUrl: URL?
     @Published var errorMessage: String = ""
     @Published var isLoading: Bool = false
     @Published var isFavorited: Bool = false
@@ -32,26 +28,6 @@ class DetailPresenter: ObservableObject {
                 }
             }, receiveValue: { gameDetail in
                 self.gameDetail = gameDetail
-                self.getGameTrailers(gameId: gameId)
-            }).store(in: &cancellables)
-    }
-    
-    func getGameTrailers(gameId: String) {
-        isLoading = true
-        detailUseCase.getGameTrailers(gameId: gameId)
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    self.isLoading = false
-                case .failure:
-                    self.errorMessage = String(describing: completion)
-                }
-            }, receiveValue: { gameTrailers in
-                self.gameTrailers = gameTrailers.results
-                if !gameTrailers.results!.isEmpty {
-                    self.player = AVPlayer(url: URL(string: gameTrailers.results?.first?.data?.the480 ?? "")!)
-                }
             }).store(in: &cancellables)
     }
     

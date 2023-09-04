@@ -3,10 +3,9 @@ import Combine
 
 protocol GameRepositoryProtocol {
     // Remote
-    func getGameList() -> AnyPublisher<GameListModel, ServerError>
+    func getGameList(query search: String?) -> AnyPublisher<GameListModel, ServerError>
     func getIndieGameList() -> AnyPublisher<GameListModel, ServerError>
     func getGameDetail(gameId: String) -> AnyPublisher<GameDetailModel, ServerError>
-    func getGameTrailers(gameId: String) -> AnyPublisher<GameTrailersModel, ServerError>
     // Local
     func getFavoritedGames() -> AnyPublisher<[GameTableModel], DatabaseError>
     func addFavorite(game gameModel: GameTableModel) -> AnyPublisher<Bool, DatabaseError>
@@ -32,8 +31,8 @@ class GameRepository: NSObject {
 
 extension GameRepository: GameRepositoryProtocol {
     // Remote
-    func getGameList() -> AnyPublisher<GameListModel, ServerError> {
-        return self.remote.getGameList()
+    func getGameList(query search: String?) -> AnyPublisher<GameListModel, ServerError> {
+        return self.remote.getGameList(query: search)
             .map { GameMapper.mapGameListResponseToDomains(input: $0) }.eraseToAnyPublisher()
     }
     
@@ -48,11 +47,7 @@ extension GameRepository: GameRepositoryProtocol {
     func getGameDetail(gameId: String) -> AnyPublisher<GameDetailModel, ServerError> {
         return self.remote.getGameDetail(gameId: gameId).map { GameMapper.mapGameDetailResponseToDomains(input: $0) }.eraseToAnyPublisher()
     }
-    
-    func getGameTrailers(gameId: String) -> AnyPublisher<GameTrailersModel, ServerError> {
-        return self.remote.getGameTrailers(gameId: gameId).map { GameMapper.mapGameTrailersResponseToDomains(input: $0) }.eraseToAnyPublisher()
-    }
-    
+
     // Local
     func getFavoritedGames() -> AnyPublisher<[GameTableModel], DatabaseError> {
         return self.local.getFavoritedGames().map {
