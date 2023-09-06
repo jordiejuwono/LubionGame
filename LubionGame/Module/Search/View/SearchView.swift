@@ -39,7 +39,12 @@ struct SearchView: View {
             }
         }.onAppear {
             self.presenter.getGameList(query: query)
-        }.navigationBarTitle(Text("Search results for \"\(query)\""), displayMode: .automatic)
+        }.navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Search results for \"\(query)\"").bold()
+                }
+            }
     }
     
 }

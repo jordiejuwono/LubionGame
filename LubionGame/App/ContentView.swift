@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @EnvironmentObject var homePresenter: HomePresenter
     var body: some View {
         NavigationStack {
             HomeView()

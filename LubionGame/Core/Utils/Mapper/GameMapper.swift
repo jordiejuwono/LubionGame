@@ -44,14 +44,6 @@ final class GameMapper {
         }
     }
     
-//    static func mapShortScreenshotsResponseToDomains(
-//        input screenshots: [ShortScreenshot]?
-//    ) -> [ShortScreenshotModel]? {
-//        return screenshots?.map { result in
-//            return ShortScreenshotModel(id: result.id ?? 0, image: result.image ?? "")
-//        }
-//    }
-    
     // MARK: - GameDetail
     static func mapGameDetailResponseToDomains(
         input gameDetailResponse: GameDetailResponse

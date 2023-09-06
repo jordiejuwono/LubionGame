@@ -11,7 +11,6 @@ struct TopSectionRowItem: View {
             gameGenres
             gameRating
         }.frame(width: 200).cornerRadius(12).padding(.leading)
-//            .background(Rectangle().fill(Color.gray.opacity(0.05)).shadow(color: Color.gray,radius: 8))
     }
 }
 
