@@ -1,21 +1,26 @@
 workflows:
-  ios-project-debug:
-    name: iOS debug
+  ios-debug:
+    name: iOS Debug
     environment:
       xcode: latest
       cocoapods: default
-      vars:
-        XCODE_PROJECT: "LubionGame.xcodeproj"
-        XCODE_SCHEME: "LubionGame"
     scripts:
-      - name: Build debug app
+      - name: Build Debug App
         script: |
+          # Define variables
+          XCODE_PROJECT="LubionGame.xcodeproj" # Replace with your project's .xcodeproj file
+          XCODE_SCHEME="LubionGame" # Replace with your scheme name
+
+          # Build the app
           xcodebuild build -project "$XCODE_PROJECT" \
-          -scheme "$XCODE_SCHEME" \
-          CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+                          -scheme "$XCODE_SCHEME" \
+                          -configuration Debug \
+                          CODE_SIGN_IDENTITY="" \
+                          CODE_SIGNING_REQUIRED=NO \
+                          CODE_SIGNING_ALLOWED=NO
     artifacts:
       - "LubionGame/App/**/*.app" # Update the artifact path to match your Info.plist location
     publishing:
       email:
         recipients:
-          - jordie.juwono96@gmail.com
+          - your-email@example.com # Replace with your email for notifications
