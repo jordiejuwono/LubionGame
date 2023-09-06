@@ -1,12 +1,12 @@
 workflows:
-  ios-project-debug: # workflow ID
-    name: iOS debug # workflow name
+  ios-project-debug:
+    name: iOS debug
     environment:
       xcode: latest
       cocoapods: default
       vars:
-          XCODE_PROJECT: "LubionGame.xcodeproj" # Isikan nama project Anda.
-          XCODE_SCHEME: "LubionGame" # Isikan nama scheme project Anda.
+        XCODE_PROJECT: "LubionGame.xcodeproj"
+        XCODE_SCHEME: "LubionGame"
     scripts:
       - name: Build debug app
         script: |
@@ -14,8 +14,8 @@ workflows:
           -scheme "$XCODE_SCHEME" \
           CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
     artifacts:
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+      - "LubionGame/App/**/*.app" # Update the artifact path to match your Info.plist location
     publishing:
       email:
         recipients:
-          - jordie.juwono96@gmail.com # Isikan email untuk notifikasi status building.
+          - jordie.juwono96@gmail.com
