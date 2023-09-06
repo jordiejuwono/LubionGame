@@ -5,8 +5,8 @@ workflows:
       xcode: latest
       cocoapods: default
       vars:
-          XCODE_PROJECT: "LubinoGame.xcodeproj" # Isikan nama project Anda.
-          XCODE_SCHEME: "LubinoGame" # Isikan nama scheme project Anda.
+          XCODE_PROJECT: "LubionGame.xcodeproj" # Isikan nama project Anda.
+          XCODE_SCHEME: "LubionGame" # Isikan nama scheme project Anda.
     scripts:
       - name: Build debug app
         script: |
