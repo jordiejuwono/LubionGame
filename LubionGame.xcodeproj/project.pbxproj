@@ -93,6 +93,12 @@
 		BB6776492AA441B500B47475 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BB67764C2AA442E200B47475 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
 		BBBAE1CB2AA188F000C65E0B /* TopSectionRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSectionRowItem.swift; sourceTree = "<group>"; };
+		BBF19EE72AACDF8300454CD4 /* Common */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Common; path = Modules/Common; sourceTree = "<group>"; };
+		BBF19EE82AACDFAD00454CD4 /* Search */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Search; path = Modules/Search; sourceTree = "<group>"; };
+		BBF19EE92AACDFFB00454CD4 /* GameList */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GameList; path = Modules/GameList; sourceTree = "<group>"; };
+		BBF19EEA2AACE00A00454CD4 /* Favorite */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Favorite; path = Modules/Favorite; sourceTree = "<group>"; };
+		BBF19EEB2AACE01500454CD4 /* Detail */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Detail; path = Modules/Detail; sourceTree = "<group>"; };
+		BBF19EEC2AACE11C00454CD4 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = Modules/Core; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +286,7 @@
 		BB4C8B402AA0384500FECB04 = {
 			isa = PBXGroup;
 			children = (
+				BBF19EE62AACDF8300454CD4 /* Packages */,
 				BB4C8B4B2AA0384500FECB04 /* LubionGame */,
 				BB4C8B4A2AA0384500FECB04 /* Products */,
 			);
@@ -482,6 +489,19 @@
 				BB30D73A2AA35E44003D3F96 /* GameHeaderItem.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		BBF19EE62AACDF8300454CD4 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				BBF19EE72AACDF8300454CD4 /* Common */,
+				BBF19EE82AACDFAD00454CD4 /* Search */,
+				BBF19EE92AACDFFB00454CD4 /* GameList */,
+				BBF19EEA2AACE00A00454CD4 /* Favorite */,
+				BBF19EEB2AACE01500454CD4 /* Detail */,
+				BBF19EEC2AACE11C00454CD4 /* Core */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
