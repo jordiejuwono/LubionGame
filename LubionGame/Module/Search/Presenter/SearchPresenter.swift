@@ -1,4 +1,5 @@
 import Foundation
+import Common
 import Combine
 import SwiftUI
 
@@ -17,20 +18,20 @@ class SearchPresenter: ObservableObject {
         self.searchUseCase = searchUseCase
     }
     
-    func getGameList(query search: String) {
-        isLoading = true
-        searchUseCase.getGameList(query: search)
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .failure:
-                    self.errorMessage = String(describing: completion)
-                case .finished: self.isLoading = false
-                }
-            }, receiveValue: { gameList in
-                self.searchResults = gameList.results ?? []
-            }).store(in: &cancellables)
-    }
+//    func getGameList(query search: String) {
+//        isLoading = true
+//        searchUseCase.getGameList(query: search)
+//            .receive(on: RunLoop.main)
+//            .sink(receiveCompletion: { completion in
+//                switch completion {
+//                case .failure:
+//                    self.errorMessage = String(describing: completion)
+//                case .finished: self.isLoading = false
+//                }
+//            }, receiveValue: { gameList in
+//                self.searchResults = gameList.results ?? []
+//            }).store(in: &cancellables)
+//    }
     
     func linkBuilder<Content: View>(
         for gameId: String,

@@ -37,7 +37,7 @@ struct FavoriteView: View {
                 }
             }
         }.onAppear {
-            self.presenter.getFavoritedGames()
+//            self.presenter.getFavoritedGames()
         }.navigationBarTitle(Text("Lubion Game"), displayMode: .automatic)
     }
     

@@ -17,26 +17,26 @@ class FavoritePresenter: ObservableObject {
         self.favoriteUseCase = favoriteUseCase
     }
     
-    func getFavoritedGames() {
-        isLoading = true
-        favoriteUseCase.getFavoritedGames()
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .failure:
-                    self.errorMessage = String(describing: completion)
-                case .finished:
-                    self.isLoading = false
-                }
-            }, receiveValue: { gameList in
-                if gameList.isEmpty {
-                    self.isEmpty = true
-                } else {
-                    self.isEmpty = false
-                    self.favoritedGames = gameList
-                }
-            }).store(in: &cancellables)
-    }
+//    func getFavoritedGames() {
+//        isLoading = true
+//        favoriteUseCase.getFavoritedGames()
+//            .receive(on: RunLoop.main)
+//            .sink(receiveCompletion: { completion in
+//                switch completion {
+//                case .failure:
+//                    self.errorMessage = String(describing: completion)
+//                case .finished:
+//                    self.isLoading = false
+//                }
+//            }, receiveValue: { gameList in
+//                if gameList.isEmpty {
+//                    self.isEmpty = true
+//                } else {
+//                    self.isEmpty = false
+//                    self.favoritedGames = gameList
+//                }
+//            }).store(in: &cancellables)
+//    }
     
     func linkBuilder<Content: View>(
         for gameId: String,

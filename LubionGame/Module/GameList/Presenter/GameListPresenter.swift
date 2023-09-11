@@ -1,12 +1,16 @@
 import Foundation
+import GameList
+import Common
 import SwiftUI
 import Combine
+import Core
+import Common
 
 class GameListPresenter: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     let gameListRouter = GameListRouter()
-    private let homeUseCase: HomeUseCase
+    private let homeUseCase: GetGameListUseCase
     
     @Published var gameList: [ResultModel] = []
     @Published var indieGameList: [ResultModel] = []
@@ -14,13 +18,13 @@ class GameListPresenter: ObservableObject {
     @Published var errorMessage: String = ""
     @Published var isLoading: Bool = false
     
-    init(homeUseCase: HomeUseCase) {
+    init(homeUseCase: GetGameListUseCase) {
         self.homeUseCase = homeUseCase
     }
     
     func getGameList() {
         isLoading = true
-        homeUseCase.getGameList(query: nil)
+        homeUseCase.getGameList(query: "")
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -35,6 +39,7 @@ class GameListPresenter: ObservableObject {
     }
     
     func getIndieGameList() {
+        isLoading = true
         homeUseCase.getIndieGameList()
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
@@ -44,10 +49,9 @@ class GameListPresenter: ObservableObject {
                 case .finished:
                     self.isLoading = false
                 }
-                print(completion)
             }, receiveValue: { gameList in
-                print(gameList)
                 self.indieGameList = gameList.results ?? []
+                self.randomGame = gameList.results?.randomElement()
             }).store(in: &cancellables)
     }
     

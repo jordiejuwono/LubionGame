@@ -49,6 +49,10 @@
 		BB67764A2AA441B500B47475 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6776492AA441B500B47475 /* LoadingView.swift */; };
 		BB67764D2AA442E200B47475 /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67764C2AA442E200B47475 /* EmptyDataView.swift */; };
 		BBBAE1CC2AA188F000C65E0B /* TopSectionRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBAE1CB2AA188F000C65E0B /* TopSectionRowItem.swift */; };
+		BBE973392AAF7601005CCB96 /* Detail in Frameworks */ = {isa = PBXBuildFile; productRef = BBE973382AAF7601005CCB96 /* Detail */; };
+		BBF19EEF2AAE38FC00454CD4 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = BBF19EEE2AAE38FC00454CD4 /* Common */; };
+		BBF19EF12AAE38FC00454CD4 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = BBF19EF02AAE38FC00454CD4 /* Core */; };
+		BBF19EF32AAE38FC00454CD4 /* GameList in Frameworks */ = {isa = PBXBuildFile; productRef = BBF19EF22AAE38FC00454CD4 /* GameList */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,7 +112,11 @@
 			files = (
 				BB30D7192AA2E053003D3F96 /* RealmSwift in Frameworks */,
 				BB30D7172AA2E053003D3F96 /* Realm in Frameworks */,
+				BBF19EF32AAE38FC00454CD4 /* GameList in Frameworks */,
 				BB4C8B6F2AA03E1B00FECB04 /* Alamofire in Frameworks */,
+				BBF19EF12AAE38FC00454CD4 /* Core in Frameworks */,
+				BBF19EEF2AAE38FC00454CD4 /* Common in Frameworks */,
+				BBE973392AAF7601005CCB96 /* Detail in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +297,7 @@
 				BBF19EE62AACDF8300454CD4 /* Packages */,
 				BB4C8B4B2AA0384500FECB04 /* LubionGame */,
 				BB4C8B4A2AA0384500FECB04 /* Products */,
+				BBF19EED2AAE38FC00454CD4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -504,6 +513,13 @@
 			name = Packages;
 			sourceTree = "<group>";
 		};
+		BBF19EED2AAE38FC00454CD4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -524,6 +540,10 @@
 				BB4C8B6E2AA03E1B00FECB04 /* Alamofire */,
 				BB30D7162AA2E053003D3F96 /* Realm */,
 				BB30D7182AA2E053003D3F96 /* RealmSwift */,
+				BBF19EEE2AAE38FC00454CD4 /* Common */,
+				BBF19EF02AAE38FC00454CD4 /* Core */,
+				BBF19EF22AAE38FC00454CD4 /* GameList */,
+				BBE973382AAF7601005CCB96 /* Detail */,
 			);
 			productName = LubionGame;
 			productReference = BB4C8B492AA0384500FECB04 /* LubionGame.app */;
@@ -855,6 +875,22 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB4C8B6D2AA03E1B00FECB04 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		BBE973382AAF7601005CCB96 /* Detail */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Detail;
+		};
+		BBF19EEE2AAE38FC00454CD4 /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Common;
+		};
+		BBF19EF02AAE38FC00454CD4 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		BBF19EF22AAE38FC00454CD4 /* GameList */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GameList;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

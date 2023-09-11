@@ -38,7 +38,7 @@ struct SearchView: View {
                 }
             }
         }.onAppear {
-            self.presenter.getGameList(query: query)
+//            self.presenter.getGameList(query: query)
         }.navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {

@@ -1,4 +1,5 @@
 import SwiftUI
+import Common
 
 struct GameHeaderItem: View {
     var gameData: ResultModel
@@ -21,7 +22,9 @@ struct GameHeaderItem: View {
                 Spacer()
                 Image(systemName: "star.fill").resizable().frame(width: 16, height: 16).foregroundColor(Color.yellow)
                 Text(String(gameData.rating ?? 0.0)).foregroundColor(Color.white).font(.system(size: 14)).bold()
-            }.padding(12).frame(maxWidth: .infinity, alignment: .leading).background(Color.black.opacity(0.5).cornerRadius(12, corners: [.bottomLeft, .bottomRight]))
+            }.padding(12).frame(maxWidth: .infinity, alignment: .leading)
+//                .background(Color.black.opacity(0.5).cornerRadius(12, corners: [.bottomLeft, .bottomRight])
+//            )
         }.padding(.horizontal, 12).padding(.top, 12)
     }
 }

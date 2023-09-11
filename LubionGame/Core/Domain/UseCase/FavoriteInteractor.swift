@@ -2,7 +2,7 @@ import Foundation
 import Combine
 
 protocol FavoriteUseCase {
-    func getFavoritedGames() -> AnyPublisher<[GameTableModel], DatabaseError>
+//    func getFavoritedGames() -> AnyPublisher<[GameTableModel], DatabaseError>
 }
 
 class FavoriteInteractor: FavoriteUseCase {
@@ -12,7 +12,7 @@ class FavoriteInteractor: FavoriteUseCase {
         self.repository = repository
     }
     
-    func getFavoritedGames() -> AnyPublisher<[GameTableModel], DatabaseError> {
-        return repository.getFavoritedGames()
-    }
+//    func getFavoritedGames() -> AnyPublisher<[GameTableModel], DatabaseError> {
+//        return repository.getFavoritedGames()
+//    }
 }

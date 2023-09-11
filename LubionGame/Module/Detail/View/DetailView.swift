@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct DetailView: View {
-    
+
     var gameId: String
     @ObservedObject var detailPresenter: DetailPresenter
     @State var showAlert: Bool = false
     @State var showTrailer: Bool = false
-    
+
     var body: some View {
         ZStack {
             if detailPresenter.isLoading {
@@ -67,7 +67,7 @@ struct DetailView: View {
         }.onAppear {
             if detailPresenter.gameDetail == nil {
                 detailPresenter.getGameDetail(gameId: gameId)
-                detailPresenter.isFavorited(id: Int(gameId) ?? 0)
+//                detailPresenter.isFavorited(id: Int(gameId) ?? 0)
             }
         }.toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -81,13 +81,13 @@ struct DetailView: View {
                         return Alert(title: Text("Remove from Favorite"), message: Text("Remove \(gameName ?? "") from favorite?"), primaryButton: .default(Text("Cancel")) {
                             self.showAlert = false
                         }, secondaryButton: .default(Text("Yes").bold()) {
-                            self.detailPresenter.deleteFavorite(id: self.detailPresenter.gameDetail?.id ?? 0)
+//                            self.detailPresenter.deleteFavorite(id: self.detailPresenter.gameDetail?.id ?? 0)
                         })
                     } else {
                         return Alert(title: Text("Add to Favorite"), message: Text("Add \(gameName ?? "") to favorite?"), primaryButton: .default(Text("Cancel")) {
                             self.showAlert = false
                         }, secondaryButton: .default(Text("Yes").bold()) {
-                            self.detailPresenter.addFavoriteGame(game: GameTableModel(id: self.detailPresenter.gameDetail?.id, name: self.detailPresenter.gameDetail?.name, backgroundImage: self.detailPresenter.gameDetail?.backgroundImage))
+//                            self.detailPresenter.addFavoriteGame(game: GameTableModel(id: self.detailPresenter.gameDetail?.id, name: self.detailPresenter.gameDetail?.name, backgroundImage: self.detailPresenter.gameDetail?.backgroundImage))
                         })
                     }
                 }
@@ -99,7 +99,7 @@ struct DetailView: View {
 struct CornerRadiusStyle: ViewModifier {
     var radius: CGFloat
     var corners: UIRectCorner
-    
+
     struct CornerRadiusShape: Shape {
 
         var radius = CGFloat.infinity

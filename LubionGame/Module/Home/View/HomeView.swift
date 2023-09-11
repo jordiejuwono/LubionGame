@@ -1,7 +1,10 @@
 import SwiftUI
+import GameList
+import Common
+import Core
 
 struct HomeView: View {
-    let gameListPresenter = GameListPresenter(homeUseCase: Injection.init().provideHome())
+    let gameListPresenter = GameListPresenter(homeUseCase: Injection.init().provideGetGameList())
     let favoritePresenter = FavoritePresenter(favoriteUseCase: Injection.init().provideFavorite())
     
     var body: some View {

@@ -1,4 +1,5 @@
 import SwiftUI
+import Common
 
 struct TopSectionRowItem: View {
     var gameData: ResultModel

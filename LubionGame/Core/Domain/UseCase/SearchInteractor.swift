@@ -1,8 +1,9 @@
 import Foundation
+import Common
 import Combine
 
 protocol SearchUseCase {
-    func getGameList(query search: String?) -> AnyPublisher<GameListModel, ServerError>
+//    func getGameList(query search: String?) -> AnyPublisher<GameListModel, ServerError>
 }
 
 class SearchInteractor: SearchUseCase {
@@ -12,7 +13,7 @@ class SearchInteractor: SearchUseCase {
         self.repository = repository
     }
     
-    func getGameList(query search: String?) -> AnyPublisher<GameListModel, ServerError> {
-        return repository.getGameList(query: search)
-    }
+//    func getGameList(query search: String?) -> AnyPublisher<GameListModel, ServerError> {
+//        return repository.getGameList(query: search)
+//    }
 }
