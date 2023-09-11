@@ -24,7 +24,7 @@ struct GameListView: View {
                                     }
                                 .navigationDestination(
                                     isPresented: $isNavigationActive) {
-                                        self.presenter.gameListRouter.makeSearchView(for: searchQuery)
+//                                        self.presenter.gameListRouter.makeSearchView(for: searchQuery)
                                     }
                             }.overlay(
                                 RoundedRectangle(cornerRadius: 20)

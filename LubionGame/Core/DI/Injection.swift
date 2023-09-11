@@ -1,4 +1,5 @@
 import Foundation
+import Favorite
 import Core
 import RealmSwift
 import Common
@@ -6,6 +7,8 @@ import GameList
 import Detail
 
 final class Injection: NSObject {
+    
+    private let realm = try? Realm()
     
     func provideGetGameList() -> GetGameListUseCase {
         let dataSource = GetGameListRemoteDataSource()
@@ -23,6 +26,14 @@ final class Injection: NSObject {
         return GetGameDetailInteractor(repository: repository)
     }
     
+    func provideGameFavorite() -> FavoriteUseCase {
+        let dataSource = FavoriteLocalDataSource(realm: realm!)
+        let mapper = FavoriteGamesTransformer()
+        let repository = FavoriteRepository(local: dataSource, mapper: mapper)
+        
+        return FavoriteInteractor(repository: repository)
+    }
+    
 //    func provideGetGameList<U: UseCase>() -> U where U.Request == Any, U.Response == GameListModel {
 //        let remote = GetGameListRemoteDataSource()
 //        let mapper = GameListTransformer()
@@ -31,27 +42,27 @@ final class Injection: NSObject {
 //        return Interactor(repository: repository) as! U
 //    }
     
-    private func provideRepository() -> GameRepositoryProtocol {
-        let realm = try? Realm()
-        let remoteDataSource = RemoteDataSource.sharedInstance
-        let localDataSource = LocalDataSource.sharedInstance(realm)
-        
-        return GameRepository.sharedInstance(remoteDataSource, localDataSource)
-    }
+//    private func provideRepository() -> GameRepositoryProtocol {
+//        let realm = try? Realm()
+//        let remoteDataSource = RemoteDataSource.sharedInstance
+//        let localDataSource = LocalDataSource.sharedInstance(realm)
+//
+//        return GameRepository.sharedInstance(remoteDataSource, localDataSource)
+//    }
     
 //    func provideHome() -> HomeUseCase {
 //        return HomeInteractor(repository: provideRepository())
 //    }
     
-    func provideDetail() -> DetailUseCase {
-        return DetailInteractor(repository: provideRepository())
-    }
+//    func provideDetail() -> DetailUseCase {
+//        return DetailInteractor(repository: provideRepository())
+//    }
     
-    func provideFavorite() -> FavoriteUseCase {
-        return FavoriteInteractor(repository: provideRepository())
-    }
-    
-    func provideSearch() -> SearchUseCase {
-        return SearchInteractor(repository: provideRepository())
-    }
+//    func provideFavorite() -> FavoriteUseCase {
+//        return FavoriteInteractor(repository: provideRepository())
+//    }
+//
+//    func provideSearch() -> SearchUseCase {
+//        return SearchInteractor(repository: provideRepository())
+//    }
 }

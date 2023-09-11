@@ -64,12 +64,12 @@ class GameListPresenter: ObservableObject {
         }
     }
     
-    func searchLinkBuilder<Content: View>(
-        for query: String,
-        @ViewBuilder content: () -> Content
-    ) -> some View {
-        NavigationLink(destination: gameListRouter.makeSearchView(for: query)) {
-            content()
-        }
-    }
+//    func searchLinkBuilder<Content: View>(
+//        for query: String,
+//        @ViewBuilder content: () -> Content
+//    ) -> some View {
+//        NavigationLink(destination: gameListRouter.makeSearchView(for: query)) {
+//            content()
+//        }
+//    }
 }
