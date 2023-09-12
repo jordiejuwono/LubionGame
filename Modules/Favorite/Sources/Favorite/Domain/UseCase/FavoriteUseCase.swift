@@ -1,6 +1,6 @@
 import Foundation
 import Combine
-import Core
+import CorePackage
 
 public protocol FavoriteUseCase {
     func getFavoritedGames() -> AnyPublisher<[GameTableModel], Error>

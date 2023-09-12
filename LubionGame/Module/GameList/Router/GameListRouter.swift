@@ -10,11 +10,11 @@ class GameListRouter {
         return DetailView(gameId: gameId, detailPresenter: presenter)
     }
     
-//    func makeSearchView(for query: String) -> some View {
-//        let searchUseCase = Injection.init().provideSearch()
-//        let presenter = SearchPresenter(searchUseCase: searchUseCase)
-//
-//        return SearchView(query: query, presenter: presenter)
-//    }
+    func makeSearchView(for query: String) -> some View {
+        let searchUseCase = Injection.init().provideSearchGame()
+        let presenter = SearchPresenter(searchUseCase: searchUseCase)
+
+        return SearchView(query: query, presenter: presenter)
+    }
     
 }

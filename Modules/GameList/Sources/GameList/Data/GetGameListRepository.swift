@@ -1,5 +1,5 @@
 import Combine
-import Core
+import CorePackage
 import Common
 
 public protocol GetGameListRepositoryProtocol {

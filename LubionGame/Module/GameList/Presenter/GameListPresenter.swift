@@ -3,7 +3,7 @@ import GameList
 import Common
 import SwiftUI
 import Combine
-import Core
+import CorePackage
 import Common
 
 class GameListPresenter: ObservableObject {

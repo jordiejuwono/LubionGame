@@ -1,4 +1,4 @@
-import Core
+import CorePackage
 import Common
 import Combine
 import Alamofire

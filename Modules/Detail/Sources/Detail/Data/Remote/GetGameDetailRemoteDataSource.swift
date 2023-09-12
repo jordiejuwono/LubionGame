@@ -1,7 +1,7 @@
 import Combine
 import Common
 import Foundation
-import Core
+import CorePackage
 import Alamofire
 
 public protocol GetGameDetailRemoteDataSourceProtocol {

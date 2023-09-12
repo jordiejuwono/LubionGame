@@ -1,4 +1,4 @@
-import Core
+import CorePackage
 
 public struct GameListTransformer: Mapper {
     

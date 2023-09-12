@@ -1,10 +1,11 @@
 import Foundation
 import Favorite
-import Core
+import CorePackage
 import RealmSwift
 import Common
 import GameList
 import Detail
+import Search
 
 final class Injection: NSObject {
     
@@ -32,6 +33,14 @@ final class Injection: NSObject {
         let repository = FavoriteRepository(local: dataSource, mapper: mapper)
         
         return FavoriteInteractor(repository: repository)
+    }
+    
+    func provideSearchGame() -> SearchGameUseCase {
+        let dataSource = SearchGameRemoteDataSource()
+        let mapper = GameListTransformer()
+        let repository = SearchGameRepository(remoteDataSource: dataSource, mapper: mapper)
+        
+        return SearchGameInteractor(repository: repository)
     }
     
 //    func provideGetGameList<U: UseCase>() -> U where U.Request == Any, U.Response == GameListModel {

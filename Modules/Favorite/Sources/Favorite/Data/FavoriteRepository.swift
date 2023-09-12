@@ -1,5 +1,5 @@
 import RealmSwift
-import Core
+import CorePackage
 import Combine
 
 public class FavoriteRepository<FavoriteLocalDataSource: LocalDataSource> where FavoriteLocalDataSource.Request == Any, FavoriteLocalDataSource.Response == GameEntity {

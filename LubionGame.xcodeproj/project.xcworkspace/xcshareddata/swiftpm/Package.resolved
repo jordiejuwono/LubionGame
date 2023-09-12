@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "lubiongame-core-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jordiejuwono/LubionGame-Core-Package.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "a583cae3e4845fff21d6b99576cba9107ab1e77f"
+      }
+    },
+    {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-core.git",
