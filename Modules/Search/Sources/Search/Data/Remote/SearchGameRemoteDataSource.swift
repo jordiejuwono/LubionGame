@@ -20,7 +20,7 @@ public class SearchGameRemoteDataSource: SearchGameRemoteDataSourceProtocol {
 
 extension SearchGameRemoteDataSource {
     public func searchGame(query search: String?) -> AnyPublisher<GameListResponse, Error> {
-        var parameters: Parameters = [
+        let parameters: Parameters = [
             "key": apiKey,
             "search": search ?? ""
         ]

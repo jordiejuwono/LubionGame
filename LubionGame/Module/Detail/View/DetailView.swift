@@ -71,12 +71,17 @@ struct DetailView: View {
                 detailPresenter.isFavorited(id: Int(gameId) ?? 0)
             }
         }.toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                if self.detailPresenter.gameDetail?.website != nil {
+                    Link(destination: URL(string: self.detailPresenter.gameDetail?.website ?? "")!) {
+                        Image(systemName: "link.circle")
+                    }
+                }
                 Button{
                     self.showAlert = true
                 } label: {
                     Image(systemName: self.detailPresenter.isFavorited ? "heart.fill" : "heart").foregroundColor(Color.red)
-                }.alert(isPresented: $showAlert) {
+                }.alert(isPresented: self.$showAlert) {
                     let gameName = self.detailPresenter.gameDetail?.name
                     if self.detailPresenter.isFavorited {
                         return Alert(title: Text("Remove from Favorite"), message: Text("Remove \(gameName ?? "") from favorite?"), primaryButton: .default(Text("Cancel")) {
