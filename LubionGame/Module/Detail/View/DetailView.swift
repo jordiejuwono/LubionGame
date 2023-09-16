@@ -73,8 +73,16 @@ struct DetailView: View {
         }.toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 if self.detailPresenter.gameDetail?.website != nil {
-                    Link(destination: URL(string: self.detailPresenter.gameDetail?.website ?? "")!) {
-                        Image(systemName: "link.circle")
+                    if let urlString = self.detailPresenter.gameDetail?.website, !urlString.isEmpty {
+                        if let url = URL(string: urlString) {
+                            Link(destination: url) {
+                                Image(systemName: "link.circle")
+                            }
+                        } else {
+                            // invalid url, do nothing
+                        }
+                    } else {
+                        // empty url, do nothing
                     }
                 }
                 Button{
